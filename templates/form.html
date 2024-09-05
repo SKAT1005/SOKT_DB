@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            max-width: 90%;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            height: 100px;
+        }
+
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="registration-container">
+    <div class="logo">
+        <img src="https://sun9-31.userapi.com/impg/fOGrC1SwlVTE52PWP8DXEOBfzjBS8ZZC_4mzDg/Iza28QRWcz4.jpg?size=2001x2001&quality=95&sign=6512ab5f00b7e5ad3344657246784497&type=album" alt="Логотип компании">
+    </div>
+
+    <h2>Регистрация</h2>
+
+    <form id="registration-form">
+        <div class="form-group">
+            <label for="fio">ФИО:</label>
+            <input type="text" id="fio" name="fio" placeholder="Ваше ФИО" required>
+        </div>
+
+        <div class="form-group">
+            <label for="org-name">Название организации:</label>
+            <input type="text" id="org-name" name="org-name" placeholder="Название организации" required>
+        </div>
+
+        <div class="form-group">
+            <label for="org-email">Почта организации:</label>
+            <input type="email" id="org-email" name="org-email" placeholder="Почта организации" required>
+        </div>
+
+        <div class="form-group">
+            <label for="org-type">Тип организации:</label>
+            <select id="org-type" name="org-type" required>
+                <option value="">Выберите тип</option>
+                <option value="техническая">Техническая</option>
+                <option value="гуманитарная">Гуманитарная</option>
+                <option value="другой">Другой</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="excursions">Готовы ли вы брать наших студентов на экскурсии?</label>
+            <label for="practices">Да <input type="checkbox" id="practices" name="practices"></label>
+        </div>
+
+        <div class="form-group">
+            <label for="practices">Готовы ли вы брать наших студентов на практики?</label>
+            <label for="practices">Да <input type="checkbox" id="practices" name="practices"></label>
+        </div>
+
+        <div class="form-group">
+            <label for="events">Готовы ли вы участвовать в мероприятиях от нашего университета?</label>
+            <label for="practices">Да <input type="checkbox" id="practices" name="practices"></label>
+        </div>
+
+        <button type="submit" class="btn">Зарегистрироваться</button>
+    </form>
+</div>
+
+<div id="thanks" style="display: none;">
+    <div class="container">
+        <h2>Спасибо за регистрацию!</h2>
+        <p>Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.</p>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById('registration-form');
+    const thanks = document.getElementById('thanks');
+    const registrationContainer = document.getElementById('registration-container');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Предотвратить стандартную отправку формы
+        thanks.style.display = 'block';
+        registrationContainer.style.display = 'none';
+    });
+</script>
+</body>
+</html>
