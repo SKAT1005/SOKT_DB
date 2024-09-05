@@ -91,7 +91,8 @@
 
     <h2>Регистрация</h2>
 
-    <form id="registration-form">
+    <form id="registration-form", method="post">
+        {% csrf_token%}
         <div class="form-group">
             <label for="fio">ФИО:</label>
             <input type="text" id="fio" name="fio" placeholder="Ваше ФИО" required>
@@ -119,7 +120,7 @@
 
         <div class="form-group">
             <label for="excursions">Готовы ли вы брать наших студентов на экскурсии?</label>
-            <label for="practices">Да <input type="checkbox" id="practices" name="practices"></label>
+            <label for="practices">Да <input type="checkbox" id="excursion" name="excursion"></label>
         </div>
 
         <div class="form-group">
@@ -129,30 +130,13 @@
 
         <div class="form-group">
             <label for="events">Готовы ли вы участвовать в мероприятиях от нашего университета?</label>
-            <label for="practices">Да <input type="checkbox" id="practices" name="practices"></label>
+            <label for="practices">Да <input type="checkbox" id="event" name="event"></label>
         </div>
 
         <button type="submit" class="btn">Зарегистрироваться</button>
     </form>
 </div>
 
-<div id="thanks" style="display: none;">
-    <div class="container">
-        <h2>Спасибо за регистрацию!</h2>
-        <p>Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.</p>
-    </div>
-</div>
 
-<script>
-    const form = document.getElementById('registration-form');
-    const thanks = document.getElementById('thanks');
-    const registrationContainer = document.getElementById('registration-container');
-
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Предотвратить стандартную отправку формы
-        thanks.style.display = 'block';
-        registrationContainer.style.display = 'none';
-    });
-</script>
 </body>
 </html>
